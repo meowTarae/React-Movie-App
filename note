@@ -16,6 +16,86 @@ inspect에서 확인해보면 @@@은 랜덤글자로 바뀜
 @@@가 다 다른 값으로 나오기 때문에 독립적으로 사용 가능
 개지림ㄹㅇ
 
-
+#
 useState 쓸 때, 여기선 굳이 앞에 React.붙일 필요 없음
 create-react-app 아닐땐 붙이고 ㅇㅇ
+
+
+#
+useEffect - 원할때만 사용할 수 있게끔 해줌.
+  useEffect(()=>{
+    console.log("Key Input마다 실행 됨");
+  },[keyword]); 
+
+
+
+#
+useEffect(hello, []);
+function hello() {
+    console.log("hello");
+    return bye;
+}
+function bye() {
+    console.log("bye");
+}
+
+=
+
+useEffect(() => {
+    console.log("hello");
+    return () => console.log("bye");
+}, []);
+
+return함수 =  component의 작업이 끝난 후의 작업을 시행 해줌. 
+
+
+
+#
+~~ = useState([]);
+로 배열도 넣을 수 있음
+
+
+
+#
+배열에 새 값을 추가하는 방법
+
+array = [1,2,3,4];
+[array, 5] === [[1,2,3,4], 5]
+[...array, 5] === [1, 2, 3, 4, 5]
+
+
+
+#
+map()
+
+map은 하나의 array에 있는 item들을 
+원하는 것으로 변경해줌
+ ex)
+ ['1', '2', '3', '4'].map(() => "hi")
+ => ['hi', 'hi', 'hi', 'hi']
+
+ ex)
+ {array.map((item, value) => 
+  <li key={value}>{item}</li>
+ )}
+  <li>1</li>, <li>2</li>,,,
+
+map을 사용하면 rca는 element에 'key'를 줘야함
+
+
+#
+외부 사이트에서 값을 가져오는~
+
+  useEffect(() => {
+    fetch("https://api.coinpaprika.com/v1/tickers")
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  }, []);
+
+
+
+#
+값을 가져오는데 시간이 걸리니
+보통 loading 문구로 안내를 하지
+그리고 useState에 default값 true로 놓고
+{Loading ?  <strong>Loading...</strong> : null} 로 작성
