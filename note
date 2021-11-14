@@ -81,10 +81,11 @@ map은 하나의 array에 있는 item들을
   <li>1</li>, <li>2</li>,,,
 
 map을 사용하면 rca는 element에 'key'를 줘야함
+render할땐 무조건 key가 필요해!
 
 
 #
-외부 사이트에서 값을 가져오는~
+외부 사이트에서 값을 가져오는
 
   useEffect(() => {
     fetch("https://api.coinpaprika.com/v1/tickers")
@@ -99,3 +100,25 @@ map을 사용하면 rca는 element에 'key'를 줘야함
 보통 loading 문구로 안내를 하지
 그리고 useState에 default값 true로 놓고
 {Loading ?  <strong>Loading...</strong> : null} 로 작성
+
+
+
+#
+밑에거 대신 async-await를 보편적으로 사용함.
+
+fetch(`https://yts.mx/api
+    https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`)
+      .then((response) => response.json())
+      .then((json) => setMoives(json.data.moives));
+    setLoading(false);
+
+를 이렇게
+
+  const getMovies = async () => {
+    const json = await (
+      await fetch(`https://yts.mx/api
+    https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`)
+    ).json();
+    setMoives(json.data.moives);
+    setLoading(false);
+  };
