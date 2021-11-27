@@ -1,0 +1,41 @@
+cmd에서 create-react-app로
+react파일을 만들어서 사용하는법을 배웠다
+
+ctrl + j 에서 'npm start'로 alt + b처럼 실행 가능
+
+
+css를 import해서 전체에 적용 시킬 수 있고
+선택적으로 사용할 수 있다.
+css폴더를 하나 만들되, 이름 뒤에 .module붙이자.
+
+import styles from "./~~~.module.css";
+<h1 className={styles.@@@}></h1>
+
+inspect에서 확인해보면 @@@은 랜덤글자로 바뀜
+해서 다른 애들한테 똑같이 styles.@@@입혀도
+@@@가 다 다른 값으로 나오기 때문에 독립적으로 사용 가능
+개지림ㄹㅇ
+
+
+useState 쓸 때, 여기선 굳이 앞에 React.붙일 필요 없음
+create-react-app 아닐땐 붙이고 ㅇㅇ
+
+
+
+useEffect(hello, []);
+function hello() {
+    console.log("hello");
+    return bye;
+}
+function bye() {
+    console.log("bye");
+}
+
+=
+
+useEffect(() => {
+    console.log("hello");
+    return () => console.log("bye");
+}, []);
+
+return함수 =  component의 작업이 끝난 후의 작업을 시행 해줌. 
