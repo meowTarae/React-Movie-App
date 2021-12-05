@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import Movie from "../components/Movie";
+import styles from "./Home.module.css";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -20,11 +21,17 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.container}>
+      <div className={styles.navBar}>
+        <h1 className={styles.navBar__Name}>GH's</h1>
+        <h5 className={styles.navBar__SubName}>RCA-Movie-App</h5>
+      </div>
+      {/* 상단 네비게이션 바 */}
+
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
+        <div className={}>
           {movies.map((movie) => (
             <Movie
               key={movie.id}

@@ -1,0 +1,31 @@
+.container {
+  color: white;
+
+  height: 100%;
+}
+
+.navBar {
+  box-sizing: border-box;
+
+  width: 100%;
+
+  margin-bottom: 2%;
+  position: relative;
+
+  border-top: white solid 0.1em;
+  border-bottom: white solid 0.1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navBar__Name {
+  font-size: 90px;
+  margin-top: 0.2%;
+  margin-bottom: -1.8%;
+}
+.navBar__SubName {
+  font-size: 20px;
+  font-weight: 600;
+}
