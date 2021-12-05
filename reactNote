@@ -3,7 +3,7 @@ react파일을 만들어서 사용하는법을 배웠다
 
 ctrl + j 에서 'npm start'로 alt + b처럼 실행 가능
 
-
+#  css
 css를 import해서 전체에 적용 시킬 수 있고
 선택적으로 사용할 수 있다.
 css폴더를 하나 만들되, 이름 뒤에 .module붙이자.
@@ -21,7 +21,7 @@ useState 쓸 때, 여기선 굳이 앞에 React.붙일 필요 없음
 create-react-app 아닐땐 붙이고 ㅇㅇ
 
 
-#
+#  useEffect
 useEffect - 원할때만 사용할 수 있게끔 해줌.
   useEffect(()=>{
     console.log("Key Input마다 실행 됨");
@@ -29,7 +29,6 @@ useEffect - 원할때만 사용할 수 있게끔 해줌.
 
 
 
-#
 useEffect(hello, []);
 function hello() {
     console.log("hello");
@@ -56,7 +55,7 @@ return함수 =  component의 작업이 끝난 후의 작업을 시행 해줌.
 
 
 
-#
+#...array
 배열에 새 값을 추가하는 방법
 
 array = [1,2,3,4];
@@ -65,8 +64,7 @@ array = [1,2,3,4];
 
 
 
-#
-map()
+#  Map
 
 map은 하나의 array에 있는 item들을 
 원하는 것으로 변경해줌
@@ -103,7 +101,8 @@ render할땐 무조건 key가 필요해!
 
 
 
-#
+#  async-await
+
 밑에거 대신 async-await를 보편적으로 사용함.
 
 fetch(`https://yts.mx/api
@@ -122,3 +121,66 @@ fetch(`https://yts.mx/api
     setMoives(json.data.moives);
     setLoading(false);
   };
+
+
+#  PropTypes
+
+; head에 작성
+import PropTypes from "prop-types"; 
+
+functionName.PropTypes = {
+  argueName1: PropTypes.string.isRequired,
+  argueName2: PropTypes.arrayOf(PropTypes.string).isRequired,
+;                      ( argueName2가 배열인 경우 )
+};
+
+
+
+#  React-Router-Dom
+
+; head에 작성
+import {
+   BrowserRouter as Router, 
+   Switch, 
+   Route 
+} from "react-router-dom";
+
+
+import ~~ from "./경로";
+<Switch>
+;  route를 찾아주는 역활
+;  react는 원한다면 여러개의 라우트를 출력할 수 있음 
+;  특정 채널(화면) 하나만을 보여주기위해 Switch를 사용
+
+  <Route path="/">; Home(초기화면)으로 돌아가게 해줌
+    <Home />
+  </~>
+  <Route path="/123">; 지정 page인 yeyak으로 이동
+    <yeyak />
+  </~>
+  <Route path="/map/:id">; 변수값을 받을땐 ':'를 붙여야 함
+    <yeyak />
+  </~>
+</~>
+
+
+!  page 이동
+
+<Link></~>
+;  <a href="">는 브라우저가 자동 새로고침 되기에 
+;  페이지 이동에는 Link를 사용한다.
+
+
+
+!  url에서의 변수 값 가져오기
+
+useParams()
+url의 유동값을 가져와줌.
+
+
+
+
+
+
+
+
