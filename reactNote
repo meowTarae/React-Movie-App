@@ -147,7 +147,8 @@ import {
 
 
 import ~~ from "./경로";
-<Switch>
+<Switch>    // 버전6 이후로는 switch를 사용 X 
+
 ;  route를 찾아주는 역활
 ;  react는 원한다면 여러개의 라우트를 출력할 수 있음 
 ;  특정 채널(화면) 하나만을 보여주기위해 Switch를 사용
@@ -155,11 +156,11 @@ import ~~ from "./경로";
   <Route path="/">; Home(초기화면)으로 돌아가게 해줌
     <Home />
   </~>
-  <Route path="/123">; 지정 page인 yeyak으로 이동
-    <yeyak />
+  <Route path="/123">; 지정 page인 Yeyak으로 이동
+    <Yeyak />
   </~>
   <Route path="/map/:id">; 변수값을 받을땐 ':'를 붙여야 함
-    <yeyak />
+    <Hello />
   </~>
 </~>
 
@@ -167,7 +168,7 @@ import ~~ from "./경로";
 !  page 이동
 
 <Link></~>
-;  <a href="">는 브라우저가 자동 새로고침 되기에 
+;  <a href=""> 는 브라우저가 자동 새로고침 되기에 
 ;  페이지 이동에는 Link를 사용한다.
 
 
